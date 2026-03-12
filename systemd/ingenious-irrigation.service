@@ -1,0 +1,16 @@
+[Unit]
+Description=Ingenious Irrigation AI sprinkler controller
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/ingenious_irrigation_pi_esp32
+EnvironmentFile=/home/pi/ingenious_irrigation_pi_esp32/.env
+ExecStart=/home/pi/ingenious_irrigation_pi_esp32/.venv/bin/python /home/pi/ingenious_irrigation_pi_esp32/app.py
+Restart=always
+RestartSec=5
+User=pi
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingenious Irrigation · Astra</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-frame">
+      <header class="topbar chrome-panel raised">
+        <div>
+          <p class="brand-tag">Ingenious Irrigation</p>
+          <h1>Astra Overview</h1>
+          <p class="hero-copy">Astra watches, learns, adapts — and only steps in when your yard needs it.</p>
+        </div>
+        <div class="topbar-actions">
+          <span class="status-pill" id="connectionPill">Connecting…</span>
+          <button class="ghost-btn" id="refreshBtn" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <!-- MAIN PAGE (A) · based on your sketch -->
+      <main class="sketch-grid">
+
+        <!-- LEFT COLUMN: Astra message + homeowner input + settings buttons (3,4,5,6,7) -->
+        <section class="sketch-col">
+          <section class="chrome-panel raised sketch-card" aria-labelledby="astraMsgHeading">
+            <div class="sketch-head">
+              <div>
+                <p class="section-kicker">3 · Astra</p>
+                <h2 id="astraMsgHeading">Astra’s message</h2>
+              </div>
+              <button class="ghost-btn" id="greetingBtn" type="button">Status report</button>
+            </div>
+            <div class="message-output" id="messageOutput">Astra online. Yard intelligence standing by.</div>
+            <div class="message-history" id="messageHistory"></div>
+            <!-- Avatar image removed for the laptop version to improve layout -->
+          </section>
+
+          <section class="chrome-panel raised sketch-card" aria-labelledby="homeInputHeading">
+            <div class="sketch-head">
+              <div>
+                <p class="section-kicker">4 · Homeowner</p>
+                <h2 id="homeInputHeading">Ask Astra</h2>
+              </div>
+              <div class="voice-controls" aria-label="Voice controls">
+                <button class="mic-btn" id="micToggleBtn" type="button" title="7 · Mic">Mic</button>
+                <button class="mic-btn" id="convoToggleBtn" type="button" title="Voice conversation">Convo</button>
+              </div>
+            </div>
+
+            <form id="chatForm" class="input-form">
+              <textarea id="chatInput" rows="4" placeholder="Type a question, or say: ‘Astra, water Zone 1 for 10 minutes.’"></textarea>
+              <div class="input-actions">
+                <button class="secondary-btn" id="sendBtn" type="submit">Send</button>
+                <span class="mic-status" id="micStatusLabel">Say “Astra” before a voice command.</span>
+              </div>
+            </form>
+
+            <div class="settings-row sketch-settings-row">
+              <a class="chrome-panel raised launch-card" id="openSprinklerSettingsBtn" href="/sprinkler-settings">
+                <span class="launch-kicker">5</span>
+                <strong>Sprinkler settings</strong>
+                <span>Basic sprinkler setup.</span>
+              </a>
+              <a class="chrome-panel raised launch-card" id="openAiSettingsBtn" href="/ai-settings">
+                <span class="launch-kicker">6</span>
+                <strong>AI settings</strong>
+                <span>How much Astra can adjust.</span>
+              </a>
+            </div>
+          </section>
+        </section>
+
+        <!-- MIDDLE COLUMN: Manual watering (2) + clock -->
+        <section class="sketch-col">
+          <section class="chrome-panel raised sketch-card" aria-labelledby="manualHeading">
+            <div class="sketch-head">
+              <div>
+                <p class="section-kicker">2 · Manual watering</p>
+                <h2 id="manualHeading">Run a zone</h2>
+              </div>
+              <button class="ghost-btn" id="analyzeBtn" type="button">Check yard</button>
+            </div>
+            <div class="manual-grid">
+              <label class="field-stack">
+                <span class="field-label">Zone</span>
+                <select id="manualZoneSelect"></select>
+              </label>
+              <label class="field-stack">
+                <span class="field-label">Minutes</span>
+                <input id="manualMinutesInput" type="number" min="1" max="240" value="10">
+              </label>
+              <div class="manual-buttons">
+                <button class="primary-btn" id="startZoneBtn" type="button">Start</button>
+                <button class="danger-btn" id="stopZoneBtn" type="button">Stop</button>
+              </div>
+            </div>
+            <p class="muted manual-note" id="manualStatus">Astra is standing by.</p>
+          </section>
+
+          <section class="chrome-panel raised sketch-card" aria-labelledby="timeHeading">
+            <div class="sketch-head">
+              <div>
+                <p class="section-kicker">Now</p>
+                <h2 id="timeHeading">Time & date</h2>
+              </div>
+              <span class="status-pill soft" id="clockPill">Live</span>
+            </div>
+            <div class="clock-box">
+              <div class="clock-time" id="clockTime">--:--</div>
+              <div class="clock-date" id="clockDate">—</div>
+            </div>
+          </section>
+        </section>
+
+        <!-- RIGHT COLUMN: Auto Astra settings (1) -->
+        <section class="sketch-col">
+          <section class="chrome-panel raised sketch-card" aria-labelledby="autoHeading">
+            <div class="sketch-head">
+              <div>
+                <p class="section-kicker">1 · Auto Astra</p>
+                <h2 id="autoHeading">Automatic zone care</h2>
+              </div>
+              <span class="grade-pill" id="healthGrade">A</span>
+            </div>
+
+            <div class="auto-grid">
+              <div class="glass-box zone-selector-box">
+                <p class="field-label">Zone</p>
+                <div class="zone-chip-row" id="autoZoneChips"></div>
+                <label class="toggle-line compact-toggle">
+                  <div>
+                    <strong>Astra control</strong>
+                    <p class="muted">Automatic care for this zone only. Manual watering still works.</p>
+                  </div>
+                  <input id="astraZoneControlToggle" type="checkbox">
+                </label>
+              </div>
+              <div class="glass-box schedule-box">
+                <p class="field-label">Schedule</p>
+                <div class="schedule-lines">
+                  <div><span>Start</span><strong id="autoStartTime">--:--</strong></div>
+                  <div><span>Days</span><strong id="autoDays">Daily</strong></div>
+                  <div><span>Minutes</span><strong id="autoMinutes">-- min</strong></div>
+                </div>
+              </div>
+              <div class="glass-box health-box">
+                <p class="field-label">Health</p>
+                <strong class="health-title" id="healthSummary">Astra is checking…</strong>
+                <p class="muted" id="healthNote">Astra is building today’s read.</p>
+              </div>
+            </div>
+
+            <p class="muted">Astra can make small, safe schedule trims if you allow it in AI settings.</p>
+          </section>
+        </section>
+
+        <!-- BOTTOM: Logged data (8) + Advanced button (9) -->
+        <section class="chrome-panel raised sketch-wide" aria-labelledby="historyHeading">
+          <div class="sketch-head">
+            <div>
+              <p class="section-kicker">8 · Logged data</p>
+              <h2 id="historyHeading">Zone health over time</h2>
+            </div>
+            <a class="ghost-btn" id="openDetailsBtn" href="/details">9 · Advanced</a>
+          </div>
+          <div class="zone-history-grid" id="zoneHistoryGrid"></div>
+          <p class="muted footnote">Astra learns from every run, weather swing, and plant response — the graphs get smarter over time.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

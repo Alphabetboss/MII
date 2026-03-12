@@ -1,0 +1,15 @@
+{
+  "zones": {
+    "1": {
+      "zone": 1,
+      "minutes": 10,
+      "enabled": true,
+      "astra_control_enabled": true,
+      "start_time": "05:00",
+      "frequency": "daily",
+      "every_x_days": 2,
+      "days_of_week": [],
+      "last_run_date": null
+    }
+  }
+}

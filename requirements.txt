@@ -1,0 +1,9 @@
+Flask>=3.0
+numpy>=1.26
+opencv-python-headless>=4.8
+requests>=2.31
+gpiozero>=2.0
+adafruit-blinka>=8.0
+adafruit-circuitpython-dht>=4.0
+pyserial>=3.5
+pyttsx3>=2.90

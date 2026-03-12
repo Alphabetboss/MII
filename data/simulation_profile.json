@@ -1,0 +1,19 @@
+{
+  "scenario": "healthy",
+  "scenario_label": "Healthy",
+  "description": "Balanced turf with normal demand.",
+  "people_present": false,
+  "humidity": 52.0,
+  "temperature_c": 24.0,
+  "temperature_f": 75.2,
+  "soil_moisture_pct": 42.0,
+  "pressure_psi": 46.0,
+  "updated_at": "2026-03-01T08:22:49.176342Z",
+  "camera_enabled": false,
+  "field_io_enabled": false,
+  "autonomy_enabled": true,
+  "notes": [
+    "Simulation mode uses safe synthetic camera frames and fake sensor values.",
+    "Switch to real hardware later by disabling the simulation flags in .env."
+  ]
+}

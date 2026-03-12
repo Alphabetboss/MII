@@ -1,0 +1,47 @@
+{
+  "ts": "2026-03-01T11:53:01.684669Z",
+  "telemetry": {
+    "humidity": 52.0,
+    "temperature_c": 24.0,
+    "temperature_f": 75.2,
+    "soil_moisture_pct": 42.0,
+    "pressure_psi": 46.0,
+    "sensor_fault": false,
+    "mock": true,
+    "sensor_sources": {
+      "dht": "simulation_profile",
+      "moisture": "simulation_profile",
+      "pressure": "simulation_profile"
+    }
+  },
+  "health": {
+    "greenness_score": 0.7208333333333333,
+    "water_flag": false,
+    "dry_flag": false,
+    "yellow_flag": false,
+    "brown_flag": false,
+    "summary": "Grass and planting beds look healthy.",
+    "remedy": "Keep the current schedule and continue monitoring for hot spots or puddling.",
+    "raw": {
+      "method": "hsv",
+      "green_ratio": 0.7208,
+      "yellow_ratio": 0.0,
+      "brown_ratio": 0.0,
+      "water_ratio": 0.0
+    }
+  },
+  "people": {
+    "people_present": false,
+    "count": 0,
+    "boxes": []
+  },
+  "decision": {
+    "zone": 1,
+    "base_minutes": 10,
+    "adjusted_minutes": 10,
+    "score": 5.44,
+    "advisory": "Optimal moisture: stay on schedule.",
+    "reasons": [],
+    "should_skip": false
+  }
+}

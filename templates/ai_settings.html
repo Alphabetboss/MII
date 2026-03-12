@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingenious Irrigation · AI settings</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-frame">
+      <header class="topbar chrome-panel raised">
+        <div>
+          <p class="brand-tag">Ingenious Irrigation</p>
+          <h1>AI settings</h1>
+          <p class="hero-copy">Control how much Astra can do automatically behind the scenes.</p>
+        </div>
+        <div class="topbar-actions">
+          <a class="ghost-btn" href="/">Back</a>
+        </div>
+      </header>
+
+      <main class="settings-page">
+        <section class="chrome-panel raised settings-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">C · Astra</p>
+              <h2>Automation toggles</h2>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+<label class="toggle-line wide-row">
+  <div>
+    <strong>Astra AI Master Switch</strong>
+    <p class="muted">Turns Astra's autonomous decision-making on or off. Manual watering still works.</p>
+  </div>
+  <input id="aiAstraEnabled" type="checkbox">
+</label>
+
+<label class="toggle-line wide-row">
+  <div>
+    <strong>Water Detection</strong>
+    <p class="muted">Uses the camera to look for suspicious flowing water and protect your system from leaks.</p>
+  </div>
+  <input id="aiWaterDetection" type="checkbox">
+</label>
+
+            <label class="toggle-line wide-row">
+              <div>
+                <strong>People Avoidance</strong>
+                <p class="muted">If someone walks through a spray zone, Astra pauses that zone.</p>
+              </div>
+              <input id="aiPeopleAvoidance" type="checkbox">
+            </label>
+
+            <label class="toggle-line wide-row">
+              <div>
+                <strong>Animal Deterrent</strong>
+                <p class="muted">During your chosen hours, Astra can trigger a deterrent zone when an unregistered animal approaches.</p>
+              </div>
+              <input id="aiAnimalDeterrent" type="checkbox">
+            </label>
+
+            <label class="field-stack">
+              <span class="field-label">Deterrent start</span>
+              <input id="aiAnimalStart" type="time">
+            </label>
+            <label class="field-stack">
+              <span class="field-label">Deterrent end</span>
+              <input id="aiAnimalEnd" type="time">
+            </label>
+            <label class="field-stack">
+              <span class="field-label">Trigger distance (feet)</span>
+              <input id="aiAnimalDistance" type="number" min="1" max="200">
+            </label>
+
+            <label class="toggle-line wide-row">
+              <div>
+                <strong>Astra Intelligent Override</strong>
+                <p class="muted">Astra can make minimal schedule changes using her logs, weather, and plant response.</p>
+              </div>
+              <input id="aiIntelligentOverride" type="checkbox">
+            </label>
+
+            <label class="field-stack">
+              <span class="field-label">Max change (%)</span>
+              <input id="aiOverrideLimit" type="number" min="1" max="50">
+            </label>
+          </div>
+
+          <div class="settings-actions">
+            <button class="secondary-btn" id="saveAiSettingsBtn" type="button">Save</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

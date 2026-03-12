@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingenious Irrigation · Sprinkler settings</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-frame">
+      <header class="topbar chrome-panel raised">
+        <div>
+          <p class="brand-tag">Ingenious Irrigation</p>
+          <h1>Sprinkler settings</h1>
+          <p class="hero-copy">Basic sprinkler options. Astra will still protect the yard in the background.</p>
+        </div>
+        <div class="topbar-actions">
+          <a class="ghost-btn" href="/">Back</a>
+        </div>
+      </header>
+
+      <main class="settings-page">
+        <section class="chrome-panel raised settings-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">B · Sprinkler</p>
+              <h2>Basics</h2>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+            <label class="field-stack">
+              <span class="field-label">Default zone</span>
+              <select id="sprinklerDefaultZone"></select>
+            </label>
+            <label class="field-stack">
+              <span class="field-label">Default manual minutes</span>
+              <input id="sprinklerDefaultMinutes" type="number" min="1" max="240">
+            </label>
+            <label class="field-stack">
+              <span class="field-label">Preferred start time</span>
+              <input id="sprinklerStartTime" type="time">
+            </label>
+
+            <label class="toggle-line">
+              <span>Soak guard</span>
+              <input id="sprinklerSoakGuard" type="checkbox">
+            </label>
+            <label class="toggle-line">
+              <span>Seasonal blend</span>
+              <input id="sprinklerSeasonalBlend" type="checkbox">
+            </label>
+
+            <label class="toggle-line">
+              <span>Quiet hours</span>
+              <input id="sprinklerQuietHours" type="checkbox">
+            </label>
+            <label class="field-stack">
+              <span class="field-label">Quiet start</span>
+              <input id="sprinklerQuietStart" type="time">
+            </label>
+            <label class="field-stack">
+              <span class="field-label">Quiet end</span>
+              <input id="sprinklerQuietEnd" type="time">
+            </label>
+          </div>
+
+          <div class="settings-actions">
+            <button class="secondary-btn" id="saveSprinklerSettingsBtn" type="button">Save</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "sprinkler": {
+    "default_zone": 1,
+    "default_minutes": 10,
+    "start_time": "05:30",
+    "soak_guard_enabled": true,
+    "seasonal_blend_enabled": true,
+    "quiet_hours_enabled": false,
+    "quiet_hours_start": "22:00",
+    "quiet_hours_end": "06:00"
+  },
+  "ai": {
+    "people_avoidance_enabled": true,
+    "animal_deterrent_enabled": false,
+    "animal_deterrent_start": "21:00",
+    "animal_deterrent_end": "05:00",
+    "animal_deterrent_distance_ft": 18,
+    "intelligent_override_enabled": true,
+    "intelligent_override_limit_pct": 12
+  }
+}

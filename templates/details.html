@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingenious Irrigation · Advanced</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-frame">
+      <header class="topbar chrome-panel raised">
+        <div>
+          <p class="brand-tag">Ingenious Irrigation</p>
+          <h1>Advanced plant health</h1>
+          <p class="hero-copy">Deeper views of what Astra has logged for each zone.</p>
+        </div>
+        <div class="topbar-actions">
+          <a class="ghost-btn" href="/">Back</a>
+          <button class="ghost-btn" id="refreshBtn" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <main class="details-page">
+        <section class="chrome-panel raised details-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">D · Zone details</p>
+              <h2>Zone graphs</h2>
+            </div>
+          </div>
+
+          <div id="detailZoneGrid" class="detail-zone-grid"></div>
+          <p class="muted footnote">Tip: You can keep this page hidden for most homeowners — it’s here for power users and diagnostics.</p>
+        </section>
+
+        <section class="chrome-panel raised details-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Astra log</p>
+              <h2>Recent decisions</h2>
+            </div>
+          </div>
+          <div id="decisionList" class="detail-list"></div>
+        </section>
+
+        <section class="chrome-panel raised details-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Safety</p>
+              <h2>Recent incidents</h2>
+            </div>
+          </div>
+          <div id="incidentList" class="detail-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
